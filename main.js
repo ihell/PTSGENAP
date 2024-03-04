@@ -41,6 +41,8 @@ export async function ambilDaftarPembeli() {
       noTlpn: dok.data().noTlpn,
     });
   });
+  
+  
 
   return hasil;
 }
@@ -64,4 +66,15 @@ export async function tambahPembeli(nama, alamat, noTlpn) {
 
 export async function hapusPembeli(docId) {
   await deleteDoc(doc(db, "pembeli", docId));
+}
+
+export async function ubahPembeli(docId, val) {
+  await updateDoc(doc(db, "pembeli", docId), { nama: val });
+}
+
+export async function ambilPembeli(docId) {
+  const docRef = await doc(db, "pembeli", docId);
+  const docSnap = await getDoc(docRef);
+
+  return await docSnap.data();
 }
