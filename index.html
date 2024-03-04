@@ -15,7 +15,7 @@
 <body>
   <h1>Daftar Data pembeli</h1>
 
-  <table class="table" id="daftar-produk">
+  <table class="table" id="daftar-pembeli">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -33,14 +33,14 @@
   <a href="forum-data-pembeli.html">tambah data pembeli</a>
 
   <script type="module">
-    import { ambilDaftarProduk, formatAngka } from './main.js';
+    import { ambilDaftarPembeli, formatAngka } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#daftar-produk > tbody");
-      let daftarProduk = await ambilDaftarProduk();
+      let elemenDaftar = $("#daftar-pembeli > tbody");
+      let daftarPembeli = await ambilDaftarPembeli();
       let nomor = 1;
 
-      daftarProduk.forEach((data) => {
+      daftarPembeli.forEach((data) => {
         elemenDaftar.append(
           '<tr>' +
           '<th>' + nomor + '</th>' +
