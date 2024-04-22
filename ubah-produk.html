@@ -34,7 +34,7 @@
   <a class="mt-1" href="siswa.html">Lihat Daftar Siswa</a>
 
   <script type="module">
-    import { ambilDaftarPembeli, ubahPembeli } from './main.js';
+    import { ambilPembeli, ubahPembeli } from './main.js';
 
     let tombolUbah = document.getElementById('tombol-ubah');
     let elemenNamaPembeli = document.getElementById('input-nama');
@@ -43,9 +43,11 @@
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
-    const pembeli = await ambilDaftarPembeli(docId);
+    const pembeli = await ambilPembeli(docId);
 
      elemenNamaPembeli.value = pembeli.nama;
+     elemenAlamat.value = pembeli.alamat;
+     elemenNoTlpn.value = pembeli.noTlpn;
      
 
     tombolUbah.addEventListener('click', async function(el) {

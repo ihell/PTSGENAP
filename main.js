@@ -74,7 +74,7 @@ export async function ubahPembeli(docId, val) {
       noTlpn: noTlpn });
 }
 
-export async function ambilPembali(docId) {
+export async function ambilPembeli(docId) {
   const docRef = await doc(db, "pembeli", docId);
   const docSnap = await getDoc(docRef);
 
