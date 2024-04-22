@@ -68,7 +68,13 @@ export async function hapusPembeli(docId) {
   await deleteDoc(doc(db, "pembeli", docId));
 }
 
-export async function ambilPembeli(docId) {
+export async function ubahPembeli(docId, val) {
+  await updateDoc(doc(db, "pembeli", docId), { nama: nama,
+      alamat: alamat,
+      noTlpn: noTlpn });
+}
+
+export async function ambilPembali(docId) {
   const docRef = await doc(db, "pembeli", docId);
   const docSnap = await getDoc(docRef);
 
